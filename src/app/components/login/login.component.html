@@ -1,20 +1,59 @@
-
 <div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4">
-      <form>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" name="email" id="email">
-        
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" id="password">
-          </div>
-          <input type="submit" value="Login" class="btn btn-info">
-        </form>
-  </div>
-  <div class="col-md-4"></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+<div class="card mt-2">
+  <div class="card-body">
+    <h5 class="card-title">Login here</h5>
+
+ <form class="loginform">
+     <div class="alert alert-danger errors" style="display:none">
+         
+     </div>
+
+                  <div class="form-group">
+
+                      <label class="active"  for="email">Email</label>
+                      <input type="email" id="email" class="form-control" [(ngModel)]="user.email" name="email">
+                 
+                    </div>
+                    <div class="form-group">
+                        <label  for="password" >Password</label>
+                        <input type="password" class="form-control" minlength="8"
+                         [(ngModel)]="user.password" id="password" name="password">
+                      
+                      </div>
+
+
+
+              <button class="btn btn-primary" (click)="checkUserSignIn()">Login</button>
+                  </form>
+                  
+         <a routerLink='/forgot'>Trouble signing in</a>
+
+            </div>
+         
+     </div>
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             
+    <div class="col-md-2"></div>
+  </div>
 

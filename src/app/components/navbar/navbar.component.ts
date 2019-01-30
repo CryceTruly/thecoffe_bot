@@ -13,14 +13,6 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.afAuth.user.subscribe(user => {
-      if (user) {
-
-      } else {
-        this.router.navigateByUrl('login');
-      }
-
-    });
   }
 
 

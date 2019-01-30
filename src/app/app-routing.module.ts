@@ -7,15 +7,19 @@ import { DiseasesComponent } from './components/diseases/diseases.component';
 import { NewComponent } from './components/new/new.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { AuthGuard } from './services/auth.guard';
+import { ForgotComponent } from './components/forgot/forgot.component';
 
 const routes: Routes = [
-  {path:'',component:DiseasesComponent},
-  {path:'login',component:LoginComponent},
-  {path:'diseases/:disease',component:DiseaseComponent},
-  {path:'diseases',component:DiseasesComponent},
-  {path:'new',component:NewComponent},
-  {path:'**',component:PageNotFoundComponent},
-  {path:'upload',component:FileUploadComponent}
+  { path: '', component: DiseasesComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: 'diseases/:disease', component: DiseaseComponent, canActivate: [AuthGuard] },
+  { path: 'diseases', component: DiseasesComponent, canActivate: [AuthGuard] },
+  { path: 'new', component: NewComponent, canActivate: [AuthGuard] },
+
+  {path:'forgot',component:ForgotComponent},
+  { path: 'upload', component: FileUploadComponent, canActivate: [AuthGuard] },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
