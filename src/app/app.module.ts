@@ -13,14 +13,15 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { DropZoneDirective } from './directives/drop-zone.directive';
 import { FileSizePipe } from './pipes/file-size.pipe';
 import { SummaryPipe } from './pipes/summary.pipe';
-import { AuthService } from './services/auth.service';
-import { UploadService } from './services/upload.service';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment.prod';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormsModule } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ForgotComponent } from './components/forgot/forgot.component';
+import { UploadService } from './services/upload.service';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { ForgotComponent } from './components/forgot/forgot.component';
     FormsModule
 
   ],
-  providers: [AngularFireAuth, AngularFirestore, SummaryPipe, FileSizePipe],
+  providers: [AngularFireAuth, AngularFirestore, SummaryPipe, FileSizePipe,UploadService,AngularFireStorage,AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 

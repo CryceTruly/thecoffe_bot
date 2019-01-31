@@ -1,7 +1,6 @@
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Specialist } from 'src/app/models/specialist/specialist';
 
@@ -49,7 +48,7 @@ export class LoginComponent implements OnInit {
 
   setErrors(e) {
 
-    document.querySelector('.errors').style.display='block';
+    document.getElementsByClassName('errors').style.display='block';
     document.querySelector('.errors').innerHTML=e;
 
     setTimeout(() => {
