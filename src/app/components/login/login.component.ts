@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   }
+  showErrors=false;
   constructor(private authServic: AngularFireAuth,
     private router: Router,
     private afs: AngularFirestore) {
@@ -40,22 +41,23 @@ export class LoginComponent implements OnInit {
       console.log(e);
 
       this.setErrors(e);
+      return false;
     }).then(user => {
-      this.router.navigateByUrl('diseases');
+     
+        this.router.navigateByUrl('diseases');
+      
     });
 
   }
 
   setErrors(e) {
-
-    document.getElementsByClassName('errors').style.display='block';
+this.showErrors=true;
     document.querySelector('.errors').innerHTML=e;
 
     setTimeout(() => {
       
     document.querySelector('.errors').innerHTML='';
-    
-    document.querySelector('.errors').style.display='none';
+    this.showErrors=false;
     }, 3000);
 
   }

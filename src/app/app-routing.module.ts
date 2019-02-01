@@ -13,7 +13,7 @@ import { ForgotComponent } from './components/forgot/forgot.component';
 const routes: Routes = [
   { path: '', component: DiseasesComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'diseases/:disease', component: DiseaseComponent, canActivate: [AuthGuard] },
+  { path: 'diseases/:id', component: DiseaseComponent, canActivate: [AuthGuard] },
   { path: 'diseases', component: DiseasesComponent, canActivate: [AuthGuard] },
   { path: 'new', component: NewComponent, canActivate: [AuthGuard] },
 

@@ -47,7 +47,8 @@ import { AngularFireDatabase } from '@angular/fire/database';
     FormsModule
 
   ],
-  providers: [AngularFireAuth, AngularFirestore, SummaryPipe, FileSizePipe,UploadService,AngularFireStorage,AngularFireDatabase],
+  providers: [AngularFireAuth, AngularFirestore, SummaryPipe,
+     FileSizePipe,UploadService,AngularFireStorage,AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 

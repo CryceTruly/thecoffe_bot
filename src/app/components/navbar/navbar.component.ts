@@ -8,7 +8,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class NavbarComponent implements OnInit {
   title: string;
-  constructor(private router: Router, private afAuth: AngularFireAuth) {
+  constructor(private router: Router, public afAuth: AngularFireAuth) {
     this.title = 'CoffeePro';
   }
 

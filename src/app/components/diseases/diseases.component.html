@@ -1,17 +1,21 @@
-<div class="card mt-2" style="width: 18rem;">
-  <img src="../../assets/one.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Coffe mosaic</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a routerLink='new' class="btn btn-primary">Details</a>
-  </div>
+<div  *ngIf="diseases.length>0; else nodiseases">
+
+    <div class="row" *ngFor="let d of diseases|async">
+
+
+        <div class="card mt-2" style="width: 18rem;">
+      
+            <img src="{{d.photo}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{d.name |summary}}</h5>
+              <p class="card-text">{{d.signs|summary:20}}</p>
+              <a [routerLink]="['/disease',d.id]" class="btn btn-primary">Details</a>
+            </div>
+          </div>
+    </div>
+    
 </div>
 
- <div *ngIf="afAuth.user | async as user; else showLogin">
-      <h1>Hello {{ user.displayName }}!</h1>
-      <button (click)="logout()">Logout</button>
-    </div>
-    <ng-template #showLogin>
-      <p>Please login.</p>
-      <button (click)="login()">Login with Google</button>
-    </ng-template>
+<ng-template #nodiseases>
+<h3>No Coffee Diseases Available</h3><span><a routerLink='new'>Add new</a></span>
+</ng-template>

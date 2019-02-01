@@ -10,8 +10,7 @@ export const environment = {
     databaseURL: "https://coffeeapp-956ac.firebaseio.com",
     projectId: "coffeeapp-956ac",
     storageBucket: "coffeeapp-956ac.appspot.com",
-    messagingSenderId: "936887399629"
-  }
+    messagingSenderId: "936887399629"  }
 };
 
 /*

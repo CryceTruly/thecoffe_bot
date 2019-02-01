@@ -1,4 +1,3 @@
-import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
@@ -11,20 +10,14 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class UploadService {
-
-  private basePath: string = '/uploads';
   uploads: Observable<Upload[]>;
   selectedFiles: FileList;
   private downLoadUrl;
   constructor(private storage: AngularFireStorage,private router:Router,
     private nfs: AngularFirestore, private database: AngularFireDatabase) { }
-  addDiseaseWithPhoto(files, id: string, name: string, signs: string, measures: string, effects: string) {
+  addDiseaseWithPhoto(file, id: string, name: string, signs: string, measures: string, effects: string) {
     console.log('uploading started');
-    const file = files;
-    if (file.type.split('/')[0] !== 'image') {
-      alert('Picked file is not an image');
-      return;
-    }
+
 
     //set a storage location
     const path = `diseaseimages/${new Date().getTime()}_${file.name}`;

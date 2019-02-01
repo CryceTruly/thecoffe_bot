@@ -8,6 +8,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class ForgotComponent implements OnInit {
 email='';
+showErrors=false;
   constructor(private af:AngularFireAuth) { }
 
   ngOnInit() {
@@ -22,7 +23,7 @@ this.af.auth.sendPasswordResetEmail(this.email).then(sucess=>{
   }
 
   setFeedbach(cls,msg){
-    document.querySelector('.errors').style.display='block';
+    this.showErrors=true;
     document.querySelector('.errors').classList.add(cls);
     document.querySelector('.errors').innerHTML=msg;
 
@@ -30,7 +31,7 @@ this.af.auth.sendPasswordResetEmail(this.email).then(sucess=>{
       
     document.querySelector('.errors').innerHTML='';
     
-    document.querySelector('.errors').style.display='none';
+    this.showErrors=false;
     }, 3000);
   }
 }
