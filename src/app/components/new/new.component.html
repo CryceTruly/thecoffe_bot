@@ -1,0 +1,71 @@
+
+
+ <div class="row">
+    <div class="col-md-2">
+   
+    </div>
+     <div class="col-md-8">
+        <div class="card mt-2">
+            <div class="card-body">
+              <h5 class="card-title">
+        Add A new Disease
+      </h5>
+      <form  class="form" >
+
+        <div id="error">
+            <ul id="errors">
+            </ul>
+        </div>
+  
+  
+          <div class="form-group ">
+          
+                <label>Pick Photo</label>
+                <input type="file" class="btn" id="pickedphoto" (change)="detectFiles($event)">
+            </div>
+  
+  
+  
+          <div class="form-group">
+              <label for="icon_prefix">Disease Name</label>
+            <input id="icon_prefix" type="text" [(ngModel)]="disease.name" name="name"
+            required minlength="3" class="validate form-control">
+           
+          </div>
+  
+  
+  
+          <div class="form-group">
+              <label for="">Signs</label>
+          <textarea type="text" [(ngModel)]="disease.signs" maxlength="300"  class="form-control"
+           name="profile" minlength="25" ></textarea>
+       
+        </div>
+          <div class="form-group">
+              <label for="">Effects</label>
+          <textarea type="text" [(ngModel)]="disease.effects" maxlength="300"  class="form-control"
+           name="profile" minlength="25" ></textarea>
+         
+        </div>
+  
+        <div class="form-group">
+            <label for="">Measures description</label>
+          <textarea type="text" [(ngModel)]="disease.measures" maxlength="300"  class="form-control"
+           name="measures" minlength="25"></textarea>
+        
+  <div class="spinners"></div>
+        </div>
+  
+  
+  
+  
+  
+        <input type="submit" [disabled]='disable' [value]="text" class="btn btn-success" (click)="addDisease()">
+  
+  
+    </form>
+  </div>
+
+<div class="col-md-2"></div>
+
+</div>
