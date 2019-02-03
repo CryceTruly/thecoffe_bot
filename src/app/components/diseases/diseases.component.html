@@ -1,17 +1,18 @@
 <div  *ngIf="diseases.length>0; else nodiseases">
 
-    <div class="row" *ngFor="let d of diseases|async">
-
-
-        <div class="card mt-2" style="width: 18rem;">
+    <div class="row" *ngFor="let d of diseases">
+        <div class="col md-3">  <div class="card mt-2" style="width: 18rem;">
       
-            <img src="{{d.photo}}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{d.name |summary}}</h5>
-              <p class="card-text">{{d.signs|summary:20}}</p>
-              <a [routerLink]="['/disease',d.id]" class="btn btn-primary">Details</a>
-            </div>
-          </div>
+                <img src="{{d.photo}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{d.name |summary}}</h5>
+                  <p class="card-text">{{d.signs|summary:20}}</p>
+                  <a [routerLink]="['/disease',d.id]" class="btn btn-primary">Details</a>
+                </div>
+              </div></div>
+
+
+      
     </div>
     
 </div>
