@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   }
-  showErrors=false;
+  showErrors = false;
   constructor(private authServic: AngularFireAuth,
     private router: Router,
     private afs: AngularFirestore) {
@@ -26,14 +26,15 @@ export class LoginComponent implements OnInit {
 
 
   checkUserSignIn() {
-    if( this.user.email.length<1 
-      
-      || this.user.password.length<1
-      ){
-      this.setErrors('all fields are required');
+    if (!this.user.email.length){
+      this.setErrors('Email is required');
       return false;
     }
-    if( this.user.password.length<6){
+     if(!this.user.password){
+      this.setErrors('Password is required');
+      return false;
+    }
+    if (this.user.password.length < 6) {
       this.setErrors('Password should be atleast 6 characters');
       return false;
     }
@@ -43,21 +44,20 @@ export class LoginComponent implements OnInit {
       this.setErrors(e);
       return false;
     }).then(user => {
-     
-        this.router.navigateByUrl('diseases');
-      
+
+      this.router.navigateByUrl('diseases');
+
     });
 
   }
 
   setErrors(e) {
-this.showErrors=true;
-    document.querySelector('.errors').innerHTML=e;
+    this.showErrors = true;
+    document.querySelector('#errors').innerHTML = e;
 
     setTimeout(() => {
-      
-    document.querySelector('.errors').innerHTML='';
-    this.showErrors=false;
+      this.showErrors = false;
+      document.querySelector('#errors').innerHTML = '';
     }, 3000);
 
   }
