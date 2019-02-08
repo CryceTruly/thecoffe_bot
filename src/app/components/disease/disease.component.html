@@ -21,9 +21,10 @@
   
     </ul></div>
     <div class="col-md-6">
-      <h4 class="">Photo</h4>
+      <h4 class="fluid-image">Photo</h4>
       <div id="galery">
-        <img src={{disease.photo}} id="photos" alt="" class="responsive-img center-align" alt="Photo">
+        <img src={{disease.photo}} id="photos" alt="" style="height: auto;max-width: 100%;" 
+        class="img-fluid" alt="Photo">
       </div>
   <app-file-upload [id]="disease.id"></app-file-upload>
     </div>
