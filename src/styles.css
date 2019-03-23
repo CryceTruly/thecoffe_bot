@@ -29,4 +29,8 @@ body{
 
 progress::-webkit-progress-value {
   transition: width 0.1s ease;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> feat(dropZone): add multiple file uploads

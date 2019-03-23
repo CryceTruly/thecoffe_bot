@@ -3,6 +3,7 @@
 <div class="card">
   <div class="card-body">
    <table class="table">
+<<<<<<< HEAD
 
      <thead>
        <tr>
@@ -26,6 +27,32 @@
      </tbody>
    </table>
 
+=======
+
+     <thead>
+       <tr>
+
+         <th scope="col">#</th>
+         <th scope="col">Name</th>
+         <th scope="col">Signs</th>
+         <th scope="col">Details</th>
+       </tr>
+     </thead>
+     <tbody *ngFor="let d of diseases">
+       <tr>
+         <th scope="row">1</th>
+
+         <td>{{d.name |summary}}</td>
+         <td>{{d.signs|summary:20}}</td>
+         <td [routerLink]="['/diseases',d.id]" class="btn btn-primary">Details</td>
+
+       </tr>
+
+
+     </tbody>
+   </table>
+
+>>>>>>> feat(dropZone): add multiple file uploads
 
 
 
@@ -36,4 +63,8 @@
      <h3>No Coffee Diseases Available</h3><span><a routerLink='new'>Add new</a></span>
    </ng-template>
   </div>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> feat(dropZone): add multiple file uploads
