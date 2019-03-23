@@ -1,21 +1,40 @@
-<div  *ngIf="diseases.length>0; else nodiseases">
+<div *ngIf="diseases.length>0; else nodiseases">
 
-    <div class="row" *ngFor="let d of diseases|async">
+<div class="card">
+  <div class="card-body">
+   <table class="table">
+
+     <thead>
+       <tr>
+
+         <th scope="col">#</th>
+         <th scope="col">Name</th>
+         <th scope="col">Signs</th>
+         <th scope="col">Details</th>
+       </tr>
+     </thead>
+     <tbody *ngFor="let d of diseases">
+       <tr>
+         <th scope="row">1</th>
+
+         <td>{{d.name |summary}}</td>
+         <td>{{d.signs|summary:20}}</td>
+         <td [routerLink]="['/diseases',d.id]" class="btn btn-primary">Details</td>
+
+       </tr>
 
 
-        <div class="card mt-2" style="width: 18rem;">
-      
-            <img src="{{d.photo}}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{d.name |summary}}</h5>
-              <p class="card-text">{{d.signs|summary:20}}</p>
-              <a [routerLink]="['/disease',d.id]" class="btn btn-primary">Details</a>
-            </div>
-          </div>
-    </div>
-    
+     </tbody>
+   </table>
+
+
+
+
+
+   </div>
+
+   <ng-template #nodiseases>
+     <h3>No Coffee Diseases Available</h3><span><a routerLink='new'>Add new</a></span>
+   </ng-template>
+  </div>
 </div>
-
-<ng-template #nodiseases>
-<h3>No Coffee Diseases Available</h3><span><a routerLink='new'>Add new</a></span>
-</ng-template>
