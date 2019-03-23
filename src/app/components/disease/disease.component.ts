@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-disease',
   templateUrl: './disease.component.html',
@@ -16,6 +15,8 @@ id:string;
     this.id = params.get('id');
 this.afs.collection('diseases').doc(this.id).valueChanges().subscribe(data=>{
 this.disease = data;
+console.log(this.id);
+
 });
 
 
